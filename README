@@ -1,0 +1,42 @@
+ 
+White Source Software is currently developed with
+openSUSE 12.2
+KDE 4.8.5
+gcc 4.7.1 
+
+Limitation:
+pre alpha, please make frequent backup
+works preferably with SDL2 
+
+Libraries:
+-xorg developement files ( xorg-x11-devel or something alike )
+-SDL2; available on sdllib.org website. Before compiling SDL2, you must have installed the xorg developement files
+-freetype2 ( freetype2-devel )
+-boost_regex ( boost-devel )
+
+Installation:
+set the environment variable LL_PATH to the path of wss
+change in the directory wss;
+make -f makewcp; compile lamb
+make -f makesdl; compile sdl ( sdl is not the SDL2 library but wss for SDL2 )
+lamb -s sdl; set a local environment file to run wss with SDL2 
+lamb; launch sdl, sdl run also standalone for test purpose 
+
+First step:
+the editor is similar to vim
+:e filename; to edit a file
+:w; to save the file
+:q ( or F2); to quite 
+
+:kbl us ( or de, or fr ); to switch between us, german an french keyboard.   
+
+
+CTRR s; switch between commandline and editor
+CTRL o; rotate the option compiling, clean the code, compile an other project 
+CTRR t; compile sdl and if sucessful relaunch it, clean sdl or compile an other project 
+
+in the shell, lamb -save to backup the exefile sdl, lamb -r to restore the exefile sdl
+you may erase the files in the directory wss/config for the default configuration
+make -f makeproper to clean the directory
+
+

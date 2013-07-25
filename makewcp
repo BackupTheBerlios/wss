@@ -1,0 +1,24 @@
+EXE = lamb
+
+CC = g++
+
+LL = g++
+
+LFLAG = -g -std=c++0x  -L/usr/local/lib -Wl,-rpath,/usr/local/lib 
+
+CFLAG = -g -std=c++0x  -Wall -D_REENTRANT
+
+CINCLUDE = -I/usr/include -I. 
+
+OBJ = wcp.o 
+
+all : $(EXE) $(OBJ) 
+
+$(EXE) : $(OBJ)
+	$(LL) $(OBJ) $(LFLAG)  -o $(EXE)
+
+wcp.o : wcp.cpp
+	$(CC) $(CFLAG) $(CINCLUDE) -c wcp.cpp -o wcp.o
+
+clean : 
+	rm $(EXE) $(OBJ)

@@ -1,0 +1,105 @@
+EXE = sdl
+
+CC = g++
+
+LL = g++
+
+LFLAG = -g -std=c++0x  -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lSDL2 -lfreetype -lboost_regex
+
+CFLAG = -g -std=c++0x  -Wall -D_REENTRANT  
+
+CINCLUDE = -I/usr/include -I/usr/include/freetype2 -I/usr/local/include/SDL2 -I. -Ifox
+
+OBJ = standard.o global.o echo.o message.o make.o object.o keyb.o comtab.o lamb.o home.o line.o spline.o matrix.o carte.o image.o land.o eyes.o retine.o mouse.o fox/texel.o fox/regexp.o fox/edit.o fox/bookmarks.o fox/font.o machine/socket.o machine/posix_sys.o machine/sdl.o library/wdslib.o 
+
+all : $(EXE) $(OBJ) 
+
+$(EXE) : $(OBJ)
+	$(LL) $(OBJ) $(LFLAG)  -o $(EXE)
+
+standard.o : standard.cpp standard.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c standard.cpp -o standard.o
+
+global.o : global.cpp global.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c global.cpp -o global.o
+
+echo.o : echo.cpp echo.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c echo.cpp -o echo.o
+
+message.o : message.cpp message.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c message.cpp -o message.o
+
+make.o : make.cpp make.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c make.cpp -o make.o
+
+object.o : object.cpp object.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c object.cpp -o object.o
+
+keyb.o : keyb.cpp keyb.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c keyb.cpp -o keyb.o
+
+comtab.o : comtab.cpp comtab.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c comtab.cpp -o comtab.o
+
+lamb.o : lamb.cpp lamb.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c lamb.cpp -o lamb.o
+
+home.o : home.cpp home.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c home.cpp -o home.o
+
+line.o : line.cpp line.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c line.cpp -o line.o
+
+spline.o : spline.cpp spline.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c spline.cpp -o spline.o
+
+matrix.o : matrix.cpp matrix.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c matrix.cpp -o matrix.o
+
+carte.o : carte.cpp carte.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c carte.cpp -o carte.o
+
+image.o : image.cpp image.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c image.cpp -o image.o
+
+land.o : land.cpp land.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c land.cpp -o land.o
+
+eyes.o : eyes.cpp eyes.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c eyes.cpp -o eyes.o
+
+retine.o : retine.cpp retine.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c retine.cpp -o retine.o
+
+mouse.o : mouse.cpp mouse.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c mouse.cpp -o mouse.o
+
+fox/texel.o : fox/texel.cpp fox/texel.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c fox/texel.cpp -o fox/texel.o
+
+fox/regexp.o : fox/regexp.cpp fox/regexp.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c fox/regexp.cpp -o fox/regexp.o
+
+fox/edit.o : fox/edit.cpp fox/edit.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c fox/edit.cpp -o fox/edit.o
+
+fox/bookmarks.o : fox/bookmarks.cpp fox/bookmarks.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c fox/bookmarks.cpp -o fox/bookmarks.o
+
+fox/font.o : fox/font.cpp fox/font.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c fox/font.cpp -o fox/font.o
+
+machine/socket.o : machine/socket.cpp machine/socket.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c machine/socket.cpp -o machine/socket.o
+
+machine/posix_sys.o : machine/posix_sys.cpp machine/posix_sys.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c machine/posix_sys.cpp -o machine/posix_sys.o
+
+machine/sdl.o : machine/sdl.cpp machine/sdl.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c machine/sdl.cpp -o machine/sdl.o
+
+library/wdslib.o : library/wdslib.cpp library/wdslib.h
+	$(CC) $(CFLAG) $(CINCLUDE) -c library/wdslib.cpp -o library/wdslib.o
+
+clean : 
+	rm $(EXE) $(OBJ)
